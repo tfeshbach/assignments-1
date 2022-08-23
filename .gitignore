@@ -1,0 +1,85 @@
+dot
+buddhabrot
+thread_mandelbrot
+single_mandelbrot
+multi_mandelbrot
+.DS_Store
+benchmark1
+benchmark2
+reallocate
+print
+scramble
+encode
+decode
+binarychar
+word
+test_ppm
+ascii_image
+border
+sorted_snackbar
+dynamic_snackbar
+match_braces
+magic_square
+repeat
+wordguess
+dynamic_snackbar
+fortune
+hello
+snackbar
+rpc
+password
+*.class
+a.out
+
+# Prerequisites
+*.d
+
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# Linker output
+*.ilk
+*.map
+*.exp
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Kernel Module Compile Results
+*.mod*
+*.cmd
+.tmp_versions/
+modules.order
+Module.symvers
+Mkfile.old
+dkms.conf
