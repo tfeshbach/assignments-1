@@ -4,7 +4,7 @@ CC=gcc
 
 all: fortune hello
 
-fortune : hello.c
+fortune : fortune.c
 	gcc fortune.c -o fortune
 
 hello : hello.c
