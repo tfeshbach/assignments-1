@@ -1,14 +1,18 @@
 CC=gcc
 % :: %.c
-	$(CC) -g -Wall -Wvla -Werror -Wno-unused-variable $< -o $@
+	$(CC) -g $< -o $@
 
-all: fortune hello
+cypher : cypher.c 
+	$(CC) -g -Wall -Wvla -Werror cypher.c -o $@
 
-fortune : hello.c
-	gcc fortune.c -o fortune
+restaurants : restaurants.c 
+	$(CC) -g -Wall -Wvla -Werror restaurants.c -o $@
 
-hello : hello.c
-	gcc hello.c -o hello
+wordle : wordle.c 
+	$(CC) -g -Wall -Wvla -Werror wordle.c -o $@
+
+all : cypher restaurants wordle
 
 clean :
-	rm hello fortune
+	rm cypher restaurants wordle 2> /dev/null
+
