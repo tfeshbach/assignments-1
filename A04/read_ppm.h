@@ -21,7 +21,7 @@ extern struct ppm_pixel* read_ppm(const char* filename, int* w, int* h);
 // h: pointer argument for returning the height of the image
 // returns a 2D array of ppm_pixel, or NULL, if the file cannot be loaded
 // NOTE: Caller is responsible for freeing the returned array
-extern struct ppm_pixel** read_ppm_2d(const char* filename, int* w, int* h);
+//extern struct ppm_pixel** read_ppm_2d(const char* filename, int* w, int* h);
 
 #endif
 
