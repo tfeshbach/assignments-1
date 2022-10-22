@@ -1,3 +1,7 @@
+ascii_image
+bitmap
+test_write_ppm
+test_write_ppm_2d
 minesweeper
 sorted_restaurants
 match_braces
