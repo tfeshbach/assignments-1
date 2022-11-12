@@ -6,9 +6,9 @@
 #include <string.h>
 #include "rand.h"
 
-#define ROUNDS 10
-#define BUFFER 100
-#define LOOP 500000
+#define ROUNDS 3
+#define BUFFER 5
+#define LOOP 10
 
 struct chunk {
   int size;
@@ -17,7 +17,6 @@ struct chunk {
 };
 
 void memstats(struct chunk* freelist, void* buffer[], int len) {
-  // TODO: Print memory statistics
 }
 
 int main ( int argc, char* argv[]) {
@@ -40,12 +39,16 @@ int main ( int argc, char* argv[]) {
   void *current;
   printf("The initial top of the heap is %p.\n", init);
   for (int j = 0 ; j < ROUNDS; j++) {
+    printf("---------------\n%d\n" , j);
+
     for (int i= 0 ; i < LOOP ; i++) {
       int index = rand() % BUFFER;
       if (buffer[index] != NULL) {
         free(buffer[index]);
         buffer[index] = NULL;
-      } else {
+        printf("Freeing index %d\n", index);
+      } 
+      else {
         size_t size = (size_t) randExp(8, 4000); 
         int *memory = NULL;
         memory = malloc(size);
@@ -56,15 +59,17 @@ int main ( int argc, char* argv[]) {
         } 
         *memory = 123;
         buffer[index] = memory;
+        printf("Allocating %d bytes at index %d\n", (int) size, index);
       }
     }
     extern struct chunk* flist;
-    memstats(flist, buffer, BUFFER);
     current = sbrk(0);
-    int allocated = (int) ((current - init) / 1024);
-    printf("%d\n" , j);
-    printf("The current top of the heap is %p.\n", current);
-    printf("Increased by %d (0x%x) Kbyte\n", allocated, allocated);
+    int allocated = current - init;
+    init = current;
+
+    printf("The new top of the heap is %p.\n", current);
+    printf("Increased by %d (0x%x) bytes\n", allocated, allocated);
+    memstats(flist, buffer, BUFFER);
   }
 
   for (int i = 0; i < BUFFER; i++) {
